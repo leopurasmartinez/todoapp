@@ -9,6 +9,9 @@
 </template>
 
 <style>
+
+@import './assets/stylesheets/index.css';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,0 +1,100 @@
+<template>
+  <div class="todoapp">
+
+    <!-- <div class="toggle-all" type="button" onclick="alert('Hello world!')">
+      <label>Click</label>
+    </div> -->
+
+    <TodoNew></TodoNew>
+
+    <div class="main" v-if="todos.length > 0">
+      <div class="todo-list">
+        <li v-for="(todo, index) in todos" :key="index">
+  
+          <div class="" >
+            <input 
+              class="toggle"
+              v-model="todo.completed" 
+              type="checkbox" 
+              name="completed" 
+              :checked="todo.completed" 
+              aria-label="Completed"
+            >
+            <label 
+              for="todo.name" 
+              @click="toggleCompleted(todo)"
+              @dblclick.stop="editTodo(todo)"
+            > {{ todo.name }} </label>
+            <span class="destroy" @click="removeTodo(todo)"></span>
+          </div>
+
+        </li>
+      </div>
+
+    </div>
+    <div class="footer" v-if="todos.length > 0">
+      <div class="todo-count">
+        <strong>{{ unCompletedCount }}</strong> items left
+      </div>
+      <div class="filters">
+        <li>
+          <a href="">All</a>
+        </li>
+        <li>
+          <a href="">Active</a>
+        </li>
+        <li>
+          <a href="">Completed</a>
+        </li>
+      </div>
+      <div class="clear-completed" @click="clearCompletedTodos()">
+        Clear completed
+      </div>
+    </div>
+
+
+  </div>
+</template>
+
+<script>
+
+import { mapGetters } from 'vuex'
+
+
+export default {
+  name: 'TodoList',
+  components: {
+    TodoNew: () => import('@/components/TodoNew')
+  },
+  computed: {
+    ...mapGetters([
+      'todos',
+    ])
+  },
+  data () {
+    return {
+      newTodo: "",
+      unCompletedCount: 0,
+    }
+  },
+
+  methods: {
+    toggleCompleted(todo) {
+      let ind = this.todos.indexOf(todo)
+      this.todos[ind]['completed'] = !todo.completed
+    },
+
+    editTodo(todo) {
+      console.log("🚀 ~ file: TodoList.vue:112 ~ todo", todo)
+    },
+
+    removeTodo(todo) {
+      this.$store.commit('removeTodo', todo)
+    },
+
+    clearCompletedTodos() {
+      this.$store.state.todos = this.todos.filter(todo => !todo.completed)
+    }
+  }
+}
+</script>

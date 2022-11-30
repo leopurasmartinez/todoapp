@@ -23,5 +23,9 @@ export default new Vuex.Store({
         }
       }
     },
+
+    addTodo (state, todoItem) {
+      state.todos.push(todoItem)
+    },
   },
 })

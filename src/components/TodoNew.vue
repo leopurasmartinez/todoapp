@@ -1,6 +1,6 @@
 <template>
   <input 
-    ref="input"
+    autofocus
     class="new-todo" 
     v-model="newTodo" 
     placeholder="What do you need to do?"
@@ -18,10 +18,6 @@ export default {
     return {
       newTodo: "",
     }
-  },
-
-  mounted() {
-    this.$refs.input.focus();
   },
 
   methods: {

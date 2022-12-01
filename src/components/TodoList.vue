@@ -38,6 +38,8 @@
             <span class="destroy" @click="removeTodo(todo)"></span>
           </div>
 
+          <TodoEdit v-show="todo.isEditing" :todo="todo"></TodoEdit>
+
         </li>
       </div>
 
@@ -68,11 +70,11 @@
 
 import { mapGetters } from 'vuex'
 
-
 export default {
   name: 'TodoList',
   components: {
-    TodoNew: () => import('@/components/TodoNew')
+    TodoNew: () => import('@/components/TodoNew'),
+    TodoEdit: () => import('@/components/TodoEdit')
   },
   computed: {
     ...mapGetters([
@@ -105,6 +107,7 @@ export default {
 
     editTodo(todo) {
       console.log("🚀 ~ file: TodoList.vue:112 ~ todo", todo)
+      todo.isEditing = true
     },
 
     removeTodo(todo) {

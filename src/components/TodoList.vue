@@ -47,7 +47,7 @@
           <a href="">Completed</a>
         </li>
       </div>
-      <div class="clear-completed" @click="clearCompletedTodos()">
+      <div class="clear-completed" v-if="isShowClearCompleted" @click="clearCompletedTodos()">
         Clear completed
       </div>
     </div>
@@ -69,7 +69,10 @@ export default {
   computed: {
     ...mapGetters([
       'todos',
-    ])
+    ]),
+    isShowClearCompleted() {
+      return this.todos.filter(todo => todo.completed).length>0
+    }
   },
   data () {
     return {

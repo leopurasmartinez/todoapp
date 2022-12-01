@@ -115,9 +115,9 @@ export default {
       this.isAllTodosSelected = !this.isAllTodosSelected
       this.$store.commit('toggleAllTodos', this.isAllTodosSelected)
     },
-
+    
     clearCompletedTodos() {
-      this.$store.state.todos = this.todos.filter(todo => !todo.completed)
+      this.$store.commit('clearCompletedTodos')
     }
   }
 }

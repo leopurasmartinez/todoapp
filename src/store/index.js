@@ -27,6 +27,17 @@ export default new Vuex.Store({
     addTodo (state, todoItem) {
       state.todos.push(todoItem)
     },
+    removeTodo (state, todoItem) {
+      let id = todoItem.id;
+      let removedEl = state.todos.findIndex((x) => x.id == id);
+      if (removedEl !== null) {
+        state.todos.splice(removedEl, 1);
+      }
+    },
+
+    toggleAllTodos(state, isCompleted) {
+      state.todos.map((todo) => todo.completed = isCompleted); 
+    },
     clearCompletedTodos(state) {
       state.todos = state.todos.filter(todo => !todo.completed)
     }

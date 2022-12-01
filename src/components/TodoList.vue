@@ -43,9 +43,7 @@
 
     </div>
     <div class="footer" v-if="todos.length > 0">
-      <div class="todo-count">
-        <strong>{{ unCompletedCount }}</strong> items left
-      </div>
+      <div class="todo-count" v-html="uncompletedCount"></div>
       <div class="filters">
         <li>
           <a href="">All</a>
@@ -80,14 +78,22 @@ export default {
     ...mapGetters([
       'todos',
     ]),
+    uncompletedCount() {
+      let count = this.todos.filter(todo => !todo.completed).length
+      if (count == 1) {
+        return `${'<strong>'}${count}${'</strong>'}${' item left'}`
+      }
+      return `${'<strong>'}${count}${'</strong>'}${' items left'}`
+
+    },
     isShowClearCompleted() {
       return this.todos.filter(todo => todo.completed).length>0
     }
   },
   data () {
     return {
+      isAllTodosSelected: false,
       newTodo: "",
-      unCompletedCount: 0,
     }
   },
 

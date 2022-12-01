@@ -4,8 +4,18 @@
     <!-- <div class="toggle-all" type="button" onclick="alert('Hello world!')">
       <label>Click</label>
     </div> -->
+    <div>
+      <input 
+        class="toggle-all"
+        type="checkbox" 
+        name="Toggle All" 
+        :checked="isAllTodosSelected" 
+      >
+      <label for="Toggle All" @click="toggleAll"></label>
 
-    <TodoNew></TodoNew>
+      <TodoNew></TodoNew>
+    </div>
+
 
     <div class="main" v-if="todos.length > 0">
       <div class="todo-list">
@@ -93,6 +103,11 @@ export default {
 
     removeTodo(todo) {
       this.$store.commit('removeTodo', todo)
+    },
+
+    toggleAll() {
+      this.isAllTodosSelected = !this.isAllTodosSelected
+      this.$store.commit('toggleAllTodos', this.isAllTodosSelected)
     },
 
     clearCompletedTodos() {

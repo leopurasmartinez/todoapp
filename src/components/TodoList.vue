@@ -19,9 +19,9 @@
 
     <div class="main" v-if="todos.length > 0">
       <div class="todo-list">
-        <li v-for="(todo, index) in todos" :key="index">
-  
-          <div class="" >
+        <li v-for="(todo, index) in todos" :key="index" 
+          :class="{ editing : todo.isEditing, completed : todo.completed }">
+          <div class="" v-show="!todo.isEditing" >
             <input 
               class="toggle"
               v-model="todo.completed" 

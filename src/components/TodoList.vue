@@ -44,6 +44,7 @@
       </div>
 
     </div>
+    
     <div class="footer" v-if="todos.length > 0">
       <div class="todo-count" v-html="uncompletedCount"></div>
 

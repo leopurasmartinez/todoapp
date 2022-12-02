@@ -19,7 +19,7 @@
 
     <div class="main" v-if="todos.length > 0">
       <div class="todo-list">
-        <li v-for="(todo, index) in todos" :key="index" 
+        <li v-for="(todo, index) in filteredTodos" :key="index" 
           :class="{ editing : todo.isEditing, completed : todo.completed }">
           <div class="" v-show="!todo.isEditing" >
             <input 
@@ -62,6 +62,14 @@ export default {
     ...mapGetters([
       'todos',
     ]),
+    filteredTodos() {
+      if (this.$route.name == 'DoneTodos') {
+        return this.todos.filter(todo => todo.completed)
+      } else if (this.$route.name == 'ActiveTodos') {
+        return this.todos.filter(todo => !todo.completed)
+      }
+      return this.todos
+    },
     uncompletedCount() {
       let count = this.todos.filter(todo => !todo.completed).length
       if (count == 1) {
@@ -98,7 +106,6 @@ export default {
     },
 
     archiveItem(todo) {
-      console.log("🚀 ~ file: TodoList.vue:136 ~ archiveItem ~ todo", todo)
       this.$store.commit('archiveTodo', todo)
     },
 

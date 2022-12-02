@@ -28,28 +28,23 @@ export default new Vuex.Store({
       state.todos.push(todoItem)
     },
     updateTodo (state, todoItem) {
-      let id = todoItem.id;
-      let completed = todoItem.completed;
-      let name = todoItem.name;
-
       
-      let findEl = state.todos.find((x) => x.id == id);
+      let findEl = state.todos.find((x) => x.id == todoItem.id);
       if (findEl !== null) {
-        if (completed !== undefined) {
-          findEl.completed = completed;
+        if (todoItem.completed !== undefined) {
+          findEl.completed = todoItem.completed;
         }
-        if (name !== undefined) {
-          findEl.name = name;
+        if (todoItem.name !== undefined) {
+          findEl.name = todoItem.name;
         }
       } else {
-        console.log(`To Do List Item ${id} couldn't be found`);
+        console.log(`To Do List Item ${todoItem.id} couldn't be found`);
       }
       console.log("🚀 ~ file: index.js:31 ~ state.todos", state.todos)
     },
 
     removeTodo (state, todoItem) {
-      let id = todoItem.id;
-      let removedEl = state.todos.findIndex((x) => x.id == id);
+      let removedEl = state.todos.findIndex((x) => x.id == todoItem.id);
       if (removedEl !== null) {
         state.todos.splice(removedEl, 1);
       }

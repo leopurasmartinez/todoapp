@@ -53,7 +53,6 @@ export default new Vuex.Store({
     archiveTodo(state, todoItem) {
       let archivedEl = state.todos.findIndex((x) => x.id == todoItem.id);
       state.todos[archivedEl].completed = !state.todos[archivedEl].completed
-      // console.log("🚀 ~ file: index.js:63 ~ state.todos[archivedEl]", state.todos[archivedEl])
     },
 
     toggleAllTodos(state, isCompleted) {

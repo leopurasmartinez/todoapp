@@ -85,19 +85,12 @@ export default {
   data () {
     return {
       isAllTodosSelected: false,
-      newTodo: "",
-      filters: [
-        { name: "All", selected: true },
-        { name: "Active", selected: false },
-        { name: "Completed", selected: false }
-      ]
     }
   },
 
   methods: {
 
     editTodo(todo) {
-      console.log("🚀 ~ file: TodoList.vue:112 ~ todo", todo)
       todo.isEditing = true
     },
 

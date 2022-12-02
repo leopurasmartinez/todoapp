@@ -4,6 +4,7 @@
     <h1>todos</h1>
 
     <TodoList></TodoList>
+
     <TodoFooter />
 
   </div>
@@ -23,7 +24,6 @@ export default {
     return {
     }
   },
-
 
   methods: {
   }

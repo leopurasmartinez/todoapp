@@ -3,7 +3,7 @@
 
     <h1>todos</h1>
 
-    <TodoList></TodoList=>
+    <TodoList></TodoList>
 
     <TodoFooter />
 

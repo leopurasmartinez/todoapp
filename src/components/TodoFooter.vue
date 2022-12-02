@@ -6,7 +6,7 @@
     <div class="filters">
       <li v-for="filter, ind in filters" :key="ind">
         <router-link 
-          @click="goTo(filter, ind)" :class="{ selected : filter.selected }"
+          :class="{ selected : filter.route == $route.path }"
           :to=filter.route
         >
           {{ filter.name }}
@@ -33,7 +33,7 @@ export default {
     ]),
     uncompletedCount() {
       let count = this.todos.filter(todo => !todo.completed).length
-      if (count == 1) {
+      if (count === 1) {
         return `${'<strong>'}${count}${'</strong>'}${' item left'}`
       }
       return `${'<strong>'}${count}${'</strong>'}${' items left'}`
@@ -57,13 +57,6 @@ export default {
     
     clearCompletedTodos() {
       this.$store.commit('clearCompletedTodos')
-    },
-
-    goTo(filter, ind) {
-      this.filters.forEach((selected, index) => this.filters[index].selected = false )
-      this.filters[ind].selected = true
-      // console.log("🚀 ~ file: TodoList.vue:", this.filters)
-      this.$router.push({ name: "DoneTodos"})
     }
   }
 }

@@ -27,6 +27,26 @@ export default new Vuex.Store({
     addTodo (state, todoItem) {
       state.todos.push(todoItem)
     },
+    updateTodo (state, todoItem) {
+      let id = todoItem.id;
+      let completed = todoItem.completed;
+      let name = todoItem.name;
+
+      
+      let findEl = state.todos.find((x) => x.id == id);
+      if (findEl !== null) {
+        if (completed !== undefined) {
+          findEl.completed = completed;
+        }
+        if (name !== undefined) {
+          findEl.name = name;
+        }
+      } else {
+        console.log(`To Do List Item ${id} couldn't be found`);
+      }
+      console.log("🚀 ~ file: index.js:31 ~ state.todos", state.todos)
+    },
+
     removeTodo (state, todoItem) {
       let id = todoItem.id;
       let removedEl = state.todos.findIndex((x) => x.id == id);

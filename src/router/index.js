@@ -13,12 +13,12 @@ const routes = [
   {
     path: '/activetodos',
     name: 'ActiveTodos',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Todo/Active.vue')
+    component: () => import('../views/Todo/Active.vue')
   },
   {
     path: '/donetodos',
     name: 'DoneTodos',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Todo/Done.vue')
+    component: () => import('../views/Todo/Done.vue')
   }
 ]
 

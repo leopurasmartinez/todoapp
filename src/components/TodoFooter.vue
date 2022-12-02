@@ -34,9 +34,9 @@ export default {
     uncompletedCount() {
       let count = this.todos.filter(todo => !todo.completed).length
       if (count === 1) {
-        return `${'<strong>'}${count}${'</strong>'}${' item left'}`
+        return `<strong>${count}</strong> item left`
       }
-      return `${'<strong>'}${count}${'</strong>'}${' items left'}`
+      return `<strong>${count}</strong> items left`
 
     },
     isShowClearCompleted() {

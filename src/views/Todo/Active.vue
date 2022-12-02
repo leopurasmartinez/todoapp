@@ -19,14 +19,6 @@ export default {
   components: {
     TodoList,
     TodoFooter
-  },
-  data () {
-    return {
-    }
-  },
-
-
-  methods: {
   }
 }
 </script>

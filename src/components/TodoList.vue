@@ -46,17 +46,13 @@
     </div>
     <div class="footer" v-if="todos.length > 0">
       <div class="todo-count" v-html="uncompletedCount"></div>
+
       <div class="filters">
-        <li>
-          <a href="">All</a>
-        </li>
-        <li>
-          <a href="">Active</a>
-        </li>
-        <li>
-          <a href="">Completed</a>
+        <li v-for="filter in filters" :key="filter.name">
+          <a :class="{ selected : filter.selected }" href="">{{ filter.name }}</a>
         </li>
       </div>
+
       <div class="clear-completed" v-if="isShowClearCompleted" @click="clearCompletedTodos()">
         Clear completed
       </div>
@@ -96,6 +92,11 @@ export default {
     return {
       isAllTodosSelected: false,
       newTodo: "",
+      filters: [
+        { name: "All", selected: true },
+        { name: "Active", selected: false },
+        { name: "Completed", selected: false }
+      ]
     }
   },
 

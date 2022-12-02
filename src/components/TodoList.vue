@@ -32,7 +32,7 @@
             >
             <label 
               for="todo.name" 
-              @click="toggleCompleted(todo)"
+              @click="archiveItem(todo)"
               @dblclick.stop="editTodo(todo)"
             > {{ todo.name }} </label>
             <span class="destroy" @click="removeTodo(todo)"></span>
@@ -101,10 +101,6 @@ export default {
   },
 
   methods: {
-    toggleCompleted(todo) {
-      let ind = this.todos.indexOf(todo)
-      this.todos[ind]['completed'] = !todo.completed
-    },
 
     editTodo(todo) {
       console.log("🚀 ~ file: TodoList.vue:112 ~ todo", todo)
@@ -113,6 +109,11 @@ export default {
 
     removeTodo(todo) {
       this.$store.commit('removeTodo', todo)
+    },
+
+    archiveItem(todo) {
+      console.log("🚀 ~ file: TodoList.vue:136 ~ archiveItem ~ todo", todo)
+      this.$store.commit('archiveTodo', todo)
     },
 
     toggleAll() {

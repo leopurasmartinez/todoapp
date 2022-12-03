@@ -1,5 +1,5 @@
 <template>
-  <div class="todoapp">
+  <div>
 
     <div>
       <input

@@ -1,6 +1,7 @@
 <template>
   <div class="" >
     <input
+      autofocus
       ref="input"
       class="edit"
       v-model="newName"

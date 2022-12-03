@@ -1,9 +1,6 @@
 <template>
   <div class="todoapp">
 
-    <!-- <div class="toggle-all" type="button" onclick="alert('Hello world!')">
-      <label>Click</label>
-    </div> -->
     <div>
       <input
         class="toggle-all"

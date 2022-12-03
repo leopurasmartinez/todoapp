@@ -1,29 +1,14 @@
 <template>
-  <div class="" >
-    <input
-      autofocus
-      ref="input"
-      class="edit"
-      v-model="newName"
-      type="text" aria-label="Editing Todo"
-      @blur="editTodo(todo)"
-      @keyup.enter="editTodo(todo)"
-      @keydown.esc="cancelEdition(todo)"
-    >
-    <!-- <label
-      for="todo.name"
-    > {{ todo.name }} </label> -->
-
-    <!-- <input
-      class="toggle"
-      v-model="todo.completed"
-      type="checkbox"
-      name="completed"
-      :checked="todo.completed"
-      aria-label="Completed"
-    >
-    <span class="destroy" @click="removeTodo(todo)"></span> -->
-  </div>
+  <input
+    autofocus
+    ref="input"
+    class="edit"
+    v-model="newName"
+    type="text" aria-label="Editing Todo"
+    @blur="editTodo(todo)"
+    @keyup.enter="editTodo(todo)"
+    @keydown.esc="cancelEdition(todo)"
+  >
 </template>
 
 <script>
@@ -34,8 +19,6 @@ export default {
   name: 'TodoEdit',
   props: {
     todo: { type: Object, required: true },
-  },
-  components: {
   },
   computed: {
     ...mapGetters([

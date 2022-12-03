@@ -64,7 +64,10 @@ export default {
       let newTodo = {...todo}
       newTodo.name = this.originalName
       newTodo.isEditing = false
+      this.newName = todo.name
+      todo.isEditing = false
       this.$store.commit('updateTodo', newTodo)
+      this.$emit('cancelEdit')
       console.log("🚀 ~ file: TodoEdit.vue:68 ~ cancelEdition ~ newTodo", newTodo)
     }
   }

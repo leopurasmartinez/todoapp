@@ -38,7 +38,7 @@
             <span class="destroy" @click="removeTodo(todo)"></span>
           </div>
 
-          <TodoEdit v-show="todo.isEditing" :todo="todo"></TodoEdit>
+          <TodoEdit v-show="todo.isEditing" :todo="todo" @cancelEdit="onCancelEdit(todo)"></TodoEdit>
 
         </li>
       </div>
@@ -109,6 +109,10 @@ export default {
 
     clearCompletedTodos() {
       this.$store.commit('clearCompletedTodos')
+    },
+
+    onCancelEdit(todo) {
+      todo.isEditing = false
     }
   }
 }

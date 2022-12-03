@@ -26,7 +26,8 @@ export default {
         this.$store.commit('addTodo', {
           id: uuidv4(),
           name: this.newTodo,
-          completed: false
+          completed: false,
+          isEditing: false,
         })
         this.newTodo = ""
       }

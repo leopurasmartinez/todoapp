@@ -43,7 +43,7 @@ export default new Vuex.Store({
 
     removeTodo (state, todoItem) {
       let removedEl = state.todos.findIndex((x) => x.id == todoItem.id);
-      if (removedEl !== null) {
+      if (removedEl !== null && removedEl !== -1) {
         state.todos.splice(removedEl, 1);
       }
     },

@@ -47,8 +47,8 @@ export default {
     return {
       filters: [
         { name: "All", selected: true, route: "/" },
-        { name: "Active", selected: false, route: "/activetodos" },
-        { name: "Completed", selected: false, route: "/donetodos" }
+        { name: "Active", selected: false, route: "/active" },
+        { name: "Completed", selected: false, route: "/completed" }
       ]
     }
   },

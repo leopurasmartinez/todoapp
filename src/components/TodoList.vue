@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div>
+    <div v-if="filteredTodos.length > 0">
       <input
         class="toggle-all"
         type="checkbox"
@@ -9,9 +9,9 @@
         :checked="isAllTodosSelected"
       >
       <label for="Toggle All" @click="toggleAll"></label>
-
-      <TodoNew></TodoNew>
     </div>
+
+    <TodoNew></TodoNew>
 
 
     <div class="main" v-if="todos.length > 0">

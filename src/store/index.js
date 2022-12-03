@@ -56,7 +56,7 @@ export default new Vuex.Store({
     },
 
     toggleAllTodos(state, isCompleted) {
-      state.todos.map((todo) => todo.completed = isCompleted); 
+      state.todos.map((todo) => todo.completed = isCompleted);
     },
 
     clearCompletedTodos(state) {

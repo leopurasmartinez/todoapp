@@ -21,7 +21,7 @@
       <div class="todo-list">
         <li v-for="(todo, index) in filteredTodos" :key="index"
           :class="{ editing : todo.isEditing, completed : todo.completed }">
-          <div class="" v-show="!todo.isEditing" >
+          <div class="" v-if="!todo.isEditing" >
             <input
               class="toggle"
               v-model="todo.completed"
@@ -38,7 +38,7 @@
             <span class="destroy" @click="removeTodo(todo)"></span>
           </div>
 
-          <TodoEdit v-show="todo.isEditing" :todo="todo" @cancelEdit="onCancelEdit(todo)"></TodoEdit>
+          <TodoEdit v-if="todo.isEditing" :todo="todo" @cancelEdit="onCancelEdit(todo)"></TodoEdit>
 
         </li>
       </div>

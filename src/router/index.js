@@ -11,12 +11,12 @@ const routes = [
     component: Home
   },
   {
-    path: '/activetodos',
+    path: '/active',
     name: 'ActiveTodos',
     component: () => import('../views/Todo/Active.vue')
   },
   {
-    path: '/donetodos',
+    path: '/completed',
     name: 'DoneTodos',
     component: () => import('../views/Todo/Done.vue')
   }

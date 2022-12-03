@@ -50,7 +50,6 @@ export default {
 
   methods: {
     editTodo(todo) {
-      // console.log("🚀 ~ file: TodoEdit.vue:51 ~ todo", todo)
       if (this.newName === "") {
         this.$store.commit('removeTodo', todo)
       } else {
@@ -68,7 +67,6 @@ export default {
       todo.isEditing = false
       this.$store.commit('updateTodo', newTodo)
       this.$emit('cancelEdit')
-      console.log("🚀 ~ file: TodoEdit.vue:68 ~ cancelEdition ~ newTodo", newTodo)
     }
   }
 }

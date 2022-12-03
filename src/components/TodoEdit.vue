@@ -1,24 +1,24 @@
 <template>
   <div class="" >
-    <input 
+    <input
       ref="input"
-      class="edit" 
-      v-model="newName" 
-      type="text" aria-label="Editing Todo" 
+      class="edit"
+      v-model="newName"
+      type="text" aria-label="Editing Todo"
       @blur="editTodo(todo)"
-      @keyup.enter="editTodo(todo)"  
+      @keyup.enter="editTodo(todo)"
       @keydown.esc="cancelEdition(todo)"
     >
-    <!-- <label 
-      for="todo.name" 
+    <!-- <label
+      for="todo.name"
     > {{ todo.name }} </label> -->
 
-    <!-- <input 
+    <!-- <input
       class="toggle"
-      v-model="todo.completed" 
-      type="checkbox" 
-      name="completed" 
-      :checked="todo.completed" 
+      v-model="todo.completed"
+      type="checkbox"
+      name="completed"
+      :checked="todo.completed"
       aria-label="Completed"
     >
     <span class="destroy" @click="removeTodo(todo)"></span> -->

@@ -5,11 +5,11 @@
       <label>Click</label>
     </div> -->
     <div>
-      <input 
+      <input
         class="toggle-all"
-        type="checkbox" 
-        name="Toggle All" 
-        :checked="isAllTodosSelected" 
+        type="checkbox"
+        name="Toggle All"
+        :checked="isAllTodosSelected"
       >
       <label for="Toggle All" @click="toggleAll"></label>
 
@@ -19,19 +19,19 @@
 
     <div class="main" v-if="todos.length > 0">
       <div class="todo-list">
-        <li v-for="(todo, index) in filteredTodos" :key="index" 
+        <li v-for="(todo, index) in filteredTodos" :key="index"
           :class="{ editing : todo.isEditing, completed : todo.completed }">
           <div class="" v-show="!todo.isEditing" >
-            <input 
+            <input
               class="toggle"
-              v-model="todo.completed" 
-              type="checkbox" 
-              name="completed" 
-              :checked="todo.completed" 
+              v-model="todo.completed"
+              type="checkbox"
+              name="completed"
+              :checked="todo.completed"
               aria-label="Completed"
             >
-            <label 
-              for="todo.name" 
+            <label
+              for="todo.name"
               @click="archiveItem(todo)"
               @dblclick.stop="editTodo(todo)"
             > {{ todo.name }} </label>
@@ -106,7 +106,7 @@ export default {
       this.isAllTodosSelected = !this.isAllTodosSelected
       this.$store.commit('toggleAllTodos', this.isAllTodosSelected)
     },
-    
+
     clearCompletedTodos() {
       this.$store.commit('clearCompletedTodos')
     }

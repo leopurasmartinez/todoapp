@@ -1,6 +1,12 @@
-# task-list
 
-## Project setup
+# TODO APP
+
+This app allows you to have a todo list, adding, editing and deleting todo items.
+
+## Installation
+
+    
+### Project setup
 ```
 npm install
 ```
@@ -10,12 +16,7 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
+### Run unit tests
 ```
 npm run test:unit
 ```
@@ -25,5 +26,7 @@ npm run test:unit
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Compiles and minifies for production
+```
+npm run build
+```

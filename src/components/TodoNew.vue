@@ -23,7 +23,7 @@ export default {
   methods: {
     addTodo() {
       if (this.newTodo !== '') {
-        this.$store.commit('addTodo', {
+        this.$store.commit('todo/addTodo', {
           id: uuidv4(),
           name: this.newTodo,
           completed: false,

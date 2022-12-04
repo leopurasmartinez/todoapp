@@ -21,9 +21,9 @@ export default {
     todo: { type: Object, required: true },
   },
   computed: {
-    ...mapGetters([
-      'todos',
-    ])
+    ...mapGetters({
+      todos: 'todo/getTodos',
+    }),
   },
   data () {
     return {
@@ -35,11 +35,11 @@ export default {
   methods: {
     editTodo(todo) {
       if (this.newName === "") {
-        this.$store.commit('removeTodo', todo)
+        this.$store.commit('todo/removeTodo', todo)
       } else {
         todo.name = this.newName
         todo.isEditing = false
-        this.$store.commit('updateTodo', todo)
+        this.$store.commit('todo/updateTodo', todo)
       }
     },
 
@@ -49,7 +49,7 @@ export default {
       newTodo.isEditing = false
       this.newName = todo.name
       todo.isEditing = false
-      this.$store.commit('updateTodo', newTodo)
+      this.$store.commit('todo/updateTodo', newTodo)
       this.$emit('cancelEdit')
     }
   }

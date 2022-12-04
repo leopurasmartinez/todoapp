@@ -56,9 +56,9 @@ export default {
     TodoEdit: () => import('@/components/TodoEdit')
   },
   computed: {
-    ...mapGetters([
-      'todos',
-    ]),
+    ...mapGetters({
+      todos: 'todo/getTodos',
+    }),
     filteredTodos() {
       if (this.$route.name == 'DoneTodos') {
         return this.todos.filter(todo => todo.completed)
@@ -96,16 +96,18 @@ export default {
     },
 
     removeTodo(todo) {
-      this.$store.commit('removeTodo', todo)
+      this.$store.commit('todo/removeTodo', todo)
     },
 
     archiveItem(todo) {
-      this.$store.commit('archiveTodo', todo)
+      this.$store.commit('todo/archiveTodo', todo)
       this.checkIfTodosCompleted()
     },
     
     checkIfTodosCompleted() {
-      this.isAllTodosSelected = !this.todos.some(checkUncompleted)
+      if (this.todos) {
+        this.isAllTodosSelected = !this.todos.some(checkUncompleted)
+      }
   
       function checkUncompleted(todo) {
         return !todo.completed;
@@ -114,11 +116,11 @@ export default {
 
     toggleAll() {
       this.isAllTodosSelected = !this.isAllTodosSelected
-      this.$store.commit('toggleAllTodos', this.isAllTodosSelected)
+      this.$store.commit('todo/toggleAllTodos', this.isAllTodosSelected)
     },
 
     clearCompletedTodos() {
-      this.$store.commit('clearCompletedTodos')
+      this.$store.commit('todo/clearCompletedTodos')
       this.isAllTodosSelected = false
     },
 

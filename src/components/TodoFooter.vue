@@ -28,9 +28,9 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Footer',
   computed: {
-    ...mapGetters([
-      'todos',
-    ]),
+    ...mapGetters({
+      todos: 'todo/getTodos',
+    }),
     uncompletedCount() {
       let count = this.todos.filter(todo => !todo.completed).length
       if (count === 1) {
@@ -56,7 +56,7 @@ export default {
   methods: {
     
     clearCompletedTodos() {
-      this.$store.commit('clearCompletedTodos')
+      this.$store.commit('todo/clearCompletedTodos')
     }
   }
 }

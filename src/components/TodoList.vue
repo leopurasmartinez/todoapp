@@ -13,11 +13,11 @@
 
     <TodoNew></TodoNew>
 
-
-    <div class="main" v-if="todos.length > 0">
+    <div class="main" v-if="filteredTodos.length > 0">
       <div class="todo-list">
         <li v-for="(todo, index) in filteredTodos" :key="index"
           :class="{ editing : todo.isEditing, completed : todo.completed }">
+
           <div class="" v-if="!todo.isEditing" >
             <input
               class="toggle"
@@ -85,6 +85,10 @@ export default {
     }
   },
 
+  created() {
+    this.checkIfTodosCompleted()
+  },
+
   methods: {
 
     editTodo(todo) {
@@ -97,6 +101,15 @@ export default {
 
     archiveItem(todo) {
       this.$store.commit('archiveTodo', todo)
+      this.checkIfTodosCompleted()
+    },
+    
+    checkIfTodosCompleted() {
+      this.isAllTodosSelected = !this.todos.some(checkUncompleted)
+  
+      function checkUncompleted(todo) {
+        return !todo.completed;
+      }
     },
 
     toggleAll() {

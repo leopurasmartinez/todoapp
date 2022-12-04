@@ -119,6 +119,7 @@ export default {
 
     clearCompletedTodos() {
       this.$store.commit('clearCompletedTodos')
+      this.isAllTodosSelected = false
     },
 
     onCancelEdit(todo) {

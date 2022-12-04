@@ -10,11 +10,6 @@ function initialState() {
 
 export default new Vuex.Store({
   state: initialState,
-  // getters: {
-  //   todos (state) {
-  //     return state.todos;
-  //   }
-  // },
   mutations: {
     loadStore() {
       if (localStorage.getItem('store')) {

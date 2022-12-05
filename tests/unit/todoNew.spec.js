@@ -3,8 +3,6 @@ import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
 import todo from '@/store/modules/todo.js'
 import TodoNew from '@/components/TodoNew.vue'
-import App from '@/App.vue'
-
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -27,7 +25,6 @@ describe('The TodoNew.vue component', () => {
   })
 
   async function addTodo (todoText) {
-    wrapper.find('[class="new-todo"]').setValue(todoText)
     const element = wrapper.find('[class="new-todo"]')
     element.setValue(todoText)
     await element.trigger('keyup.enter')

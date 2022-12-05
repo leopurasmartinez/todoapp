@@ -18,7 +18,7 @@
         <li v-for="(todo, index) in filteredTodos" :key="index"
           :class="{ editing : todo.isEditing, completed : todo.completed }">
 
-          <div class="" v-if="!todo.isEditing" >
+          <div class="view" v-if="!todo.isEditing" >
             <input
               class="toggle"
               v-model="todo.completed"

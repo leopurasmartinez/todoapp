@@ -5,7 +5,7 @@ import store from './store'
 
 Vue.config.productionTip = false
 
-// Persist data
+// Persist data 
 store.subscribe((mutation, state) => {
   localStorage.setItem('store', JSON.stringify(state));
 })

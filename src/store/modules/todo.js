@@ -42,8 +42,9 @@ const todo = {
       state.todos[archivedEl].completed = !state.todos[archivedEl].completed
     },
 
-    toggleAllTodos(state, isCompleted) {
-      state.todos.map((todo) => todo.completed = isCompleted);
+    toggleAllTodos(state) {
+      let status = state.todos.every((todo) => todo.completed)
+      state.todos.map((todo) => todo.completed = !status);
     },
 
     clearCompletedTodos(state) {

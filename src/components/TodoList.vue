@@ -80,15 +80,6 @@ export default {
       return this.todos.filter(todo => todo.completed).length>0
     }
   },
-  data () {
-    return {
-      isAllTodosSelected: false,
-    }
-  },
-
-  created() {
-    this.checkIfTodosCompleted()
-  },
 
   methods: {
 
@@ -102,27 +93,15 @@ export default {
 
     archiveItem(todo) {
       this.$store.commit('todo/archiveTodo', todo)
-      this.checkIfTodosCompleted()
     },
     
-    checkIfTodosCompleted() {
-      if (this.todos) {
-        this.isAllTodosSelected = !this.todos.some(checkUncompleted)
-      }
-  
-      function checkUncompleted(todo) {
-        return !todo.completed;
-      }
-    },
 
     toggleAll() {
-      this.isAllTodosSelected = !this.isAllTodosSelected
-      this.$store.commit('todo/toggleAllTodos', this.isAllTodosSelected)
+      this.$store.commit('todo/toggleAllTodos')
     },
 
     clearCompletedTodos() {
       this.$store.commit('todo/clearCompletedTodos')
-      this.isAllTodosSelected = false
     },
 
     onCancelEdit(todo) {
@@ -131,7 +110,7 @@ export default {
 
 
     checkIfAllItemsCompleted() {
-      return this.todos.every((todo) => todo.completed);
+      return this.todos.every((todo) => todo.completed)
     }
   }
 }

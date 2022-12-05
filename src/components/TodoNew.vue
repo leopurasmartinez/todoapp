@@ -35,3 +35,10 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+
+@import './../assets/css/TodoNew.css'
+
+</style>

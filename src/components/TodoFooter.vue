@@ -61,3 +61,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+@import './../assets/css/TodoFooter.css'
+
+</style>

@@ -130,3 +130,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+@import './../assets/css/TodoList.css'
+
+</style>

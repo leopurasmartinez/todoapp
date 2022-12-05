@@ -14,6 +14,6 @@
 
 <style>
 
-@import './assets/stylesheets/index.css';
+@import './assets/css/index.css';
 
 </style>

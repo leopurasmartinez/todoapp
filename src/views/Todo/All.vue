@@ -15,7 +15,7 @@ import TodoList from '@/components/TodoList.vue'
 import TodoFooter from '@/components/TodoFooter.vue'
 
 export default {
-  name: 'Home',
+  name: 'TodoAll',
   components: {
     TodoList,
     TodoFooter

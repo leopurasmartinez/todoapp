@@ -6,7 +6,7 @@
         class="toggle-all"
         type="checkbox"
         name="Toggle All"
-        :checked="isAllTodosSelected"
+        :checked="checkIfAllItemsCompleted()"
       >
       <label for="Toggle All" @click="toggleAll"></label>
     </div>
@@ -26,6 +26,7 @@
               name="completed"
               :checked="todo.completed"
               aria-label="Completed"
+              @click="archiveItem(todo)"
             >
             <label
               for="todo.name"
@@ -126,6 +127,11 @@ export default {
 
     onCancelEdit(todo) {
       todo.isEditing = false
+    },
+
+
+    checkIfAllItemsCompleted() {
+      return this.todos.every((todo) => todo.completed);
     }
   }
 }
